@@ -15,24 +15,26 @@ def save_projects(projects):
         json.dump(projects, f, indent=2) # save projects data to projects.json file
 
 def add_project(projects, name):
-    
-    if name in projects:
+    """Add new project to projects list"""
+    if name in projects: # If proejct already exists return. TODO: Add partial match
         return False
 
-    projects[name] = {"status": "in-progress", "tasks": []}
+    projects[name] = {"status": "in-progress", "tasks": []} # New project
     return True
 
 def add_task(projects, project_name, task_name):
-    if project_name not in projects:
+    """Add task to project if project exists"""
+    if project_name not in projects: # If project doesn't exist return
         return False
-    projects[project_name]["tasks"].append({"name": task_name, "done": False})
+    projects[project_name]["tasks"].append({"name": task_name, "done": False}) # Add new task to project
     return True
 
 def toggle_task(projects, project_name, task_index):
-    if project_name not in projects:
+    """Toggle task as finished/in progress based on project and task_index"""
+    if project_name not in projects: # If project doesn't exist return
         return False
-    tasks = projects[project_name]["tasks"]
-    if task_index < 0 or task_index >= len(tasks):
+    tasks = projects[project_name]["tasks"] # Find tasks
+    if task_index < 0 or task_index >= len(tasks): # Look for tasks at index. return if it doesn't exist
         return False
-    tasks[task_index]["done"] = not tasks[task_index]["done"]
+    tasks[task_index]["done"] = not tasks[task_index]["done"] # toggle task status
     return True

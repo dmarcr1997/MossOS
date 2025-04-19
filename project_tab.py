@@ -3,7 +3,7 @@ from tkinter import scrolledtext, messagebox, ttk, simpledialog
 from project_tracker import load_projects, save_projects
 import threading
 import json
-from theme import colors
+from theme import colors, icon_path
 from difflib import get_close_matches # used for fuzzy matching for llm commands
 
 
@@ -184,6 +184,7 @@ class ProjectTab():
         win.title(f"📋 {project_name}") # Set window title
         win.geometry("400x400") # Set windwo size
         win.configure(bg=colors["background"]) # Set background color
+        win.iconbitmap(icon_path)
         selected_task_name = tk.StringVar() # global var for new window
 
         task_listbox = tk.Listbox(
