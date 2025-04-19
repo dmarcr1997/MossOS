@@ -1,0 +1,41 @@
+{
+  "Modular Rover": {
+    "status": "in-progress",
+    "tasks": [
+      {
+        "name": "Assemble bogie",
+        "done": false
+      },
+      {
+        "name": "Wire ToF sensor",
+        "done": true
+      },
+      {
+        "name": "Tests",
+        "done": false
+      }
+    ]
+  },
+  "Mini Mapping Rover": {
+    "status": "in-progress",
+    "tasks": [
+      {
+        "name": "2D Point Class",
+        "done": false
+      }
+    ]
+  },
+  "SIP Project": {
+    "status": "in-progress",
+    "tasks": [
+      {
+        "name": "Build Trailer Hopper",
+        "done": false
+      },
+      {
+        "name": "Finish 3D printing Rover Parts",
+        "done": false
+      }
+    ]
+  }
+}
