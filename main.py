@@ -42,7 +42,6 @@ apply_theme(root) # Apply theme to app
 
 root.title("MossOS") # Title name 
 root.geometry("600x450") # Window sizing
-icon_path = "assets\LeafIcon.ico"  # .ico for window
 root.iconbitmap(icon_path) # change window icon to app icon
 
 # === Create Notebook for Tabs ===

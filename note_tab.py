@@ -72,26 +72,19 @@ class NoteTab():
     def process_llm_command(self):
         """Sends current note text content to llm and llm appends response to end of notes"""
         note_content = self.note_text.get("1.0", tk.END).strip()# Get text content from textarea starting at beginning to the end of the text remove unecessary whitespace
-        prompt = f"""
-        You are a helpful assistant embedded in a retro futuristic notes app with the CONSTRAINTS BELOW.
-        Take the CURRENT NOTES and provide thoughtful continuation and reflection. 
-        
-        <CONSTRAINTS>
-        ONLY GIVE A RESPONSE TO THE NOTES. DO NOT ADD ANYTHING ELSE. IT SHOULD FLOW AND BE PART OF THE NOTES.
-        DONT GO OFF THE RAILS PLEASE KEEP IT PROFESSIONAL.
-        ALWAYS RETURN SOMETHING, NO EMPTY RESPONSES.
-        </CONSTRAINTS>
-        <CURRENT NOTES>
-        """
-        prompt += note_content # Add note content to llm prompt
-        prompt += "</CURRENT NOTES><RESPONSE>"
+        prompt = (
+            "You are a helpful assistant embedded in a retro futuristic notes app with the CONSTRAINTS BELOW.\n"
+            "Take the NOTES and provide thoughtful continuation and reflection.\n\n"
+            "NOTES:\n"
+            f"{note_content}\n"
+        )
         def query_llm():
             """Thread function to query llm on separate thread from program"""
             self.loader_label.config(text="Thinking... 🌿")
             try:
                 response = self.llm(
                     f"{prompt}",
-                    max_tokens=200,
+                    max_tokens=100,
                     stop=["User:"],
                     echo=False
                 ) # Query LLM with prompt

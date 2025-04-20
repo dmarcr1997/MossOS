@@ -107,6 +107,7 @@ class ProjectTab():
                     echo=False
                 ) # Query LLM with prompt
                 response_text = response["choices"][0]["text"].strip() # Extract llm response
+                
                 self.execute_llm_instruction(response_text) # Execute command 
             except Exception as e: # Catch errors
                 messagebox.showerror("LLM Error", str(e)) # Show errors in messagebox
@@ -114,8 +115,11 @@ class ProjectTab():
     
     def execute_llm_instruction(self, text):
         """Try to execute llm command to create new project, new task, and mark task as done"""
+        if not text: 
+            self.command_display(f"LLM: Cannot parse-{text}")
+            self.command_display.see(tk.END)
         data = json.loads(text) # Turn llm text into json
-
+        print("TEST2")
         action = data.get("action") # GET action from json
         project = data.get("project") # GET project from json
         task = data.get("task") # GET task from json

@@ -13,6 +13,10 @@
       {
         "name": "Tests",
         "done": false
+      },
+      {
+        "name": "Testing",
+        "done": false
       }
     ]
   },
@@ -26,6 +30,10 @@
       {
         "name": "Test New Drive System",
         "done": false
+      },
+      {
+        "name": "Integration Test",
+        "done": true
       }
     ]
   },
@@ -39,7 +47,24 @@
       {
         "name": "Finish 3D printing Rover Parts",
         "done": false
+      },
+      {
+        "name": "Test Integration",
+        "done": true
       }
     ]
+  },
+  "3D print items": {
+    "status": "in-progress",
+    "tasks": [
+      {
+        "name": "Print Wheels",
+        "done": true
+      }
+    ]
+  },
+  "Soldering": {
+    "status": "in-progress",
+    "tasks": []
   }
 }

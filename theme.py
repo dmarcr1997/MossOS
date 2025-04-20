@@ -11,6 +11,9 @@ colors = {
     "panel": "#e0d8b0"
 }
 
+#icon path
+icon_path="assets\LeafIcon.ico"
+
 def apply_theme(root):
     style = ttk.Style(root)
     style.theme_use("clam")
